@@ -6,11 +6,11 @@ import java.util.logging.Logger;
 import org.dynmap.DynmapAPI;
 import org.dynmap.DynmapCommonAPI;
 
-import com.ensifera.animosity.craftirc.BasePoint;
 import com.ensifera.animosity.craftirc.EndPoint;
 import com.ensifera.animosity.craftirc.RelayedMessage;
+import com.ensifera.animosity.craftirc.SecuredEndPoint.Security;
 
-public class DynmapPoint extends BasePoint {
+public class DynmapPoint implements EndPoint {
 	
 	private Logger log = Logger.getLogger("Minecraft");
 	private DynmapAPI dynmap;

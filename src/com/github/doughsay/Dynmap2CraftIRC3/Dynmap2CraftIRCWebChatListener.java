@@ -8,7 +8,7 @@ import com.ensifera.animosity.craftirc.CraftIRC;
 import com.ensifera.animosity.craftirc.RelayedMessage;
 
 public class Dynmap2CraftIRCWebChatListener extends CustomEventListener {
-	
+
 	private DynmapPoint dynmapPoint;
 	private CraftIRC craftIrc;
 	
@@ -20,10 +20,12 @@ public class Dynmap2CraftIRCWebChatListener extends CustomEventListener {
 	public void onCustomEvent(Event evt) {
 		if(!(evt instanceof DynmapWebChatEvent)) return;
 		DynmapWebChatEvent webevt = (DynmapWebChatEvent) evt;
-		String msg = "[Map] " + webevt.getName() + ": " + webevt.getMessage();
-		
+		String msg = webevt.getMessage();
+		String sender = webevt.getName();
+
 		RelayedMessage rMsg = craftIrc.newMsg(dynmapPoint, null, "");
 		rMsg.setField("message", msg);
+		rMsg.setField("sender", sender);
 		rMsg.post();
 	}
 }
