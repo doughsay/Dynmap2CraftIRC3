@@ -1,4 +1,4 @@
 name: Dynmap2CraftIRC3
 main: com.github.doughsay.Dynmap2CraftIRC3.Dynmap2CraftIRC3
-version: 0.1
+version: 0.2
 depend: [dynmap, CraftIRC]
