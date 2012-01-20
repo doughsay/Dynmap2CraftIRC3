@@ -16,7 +16,7 @@ The only configuration required is in CraftIRC's config.yml.  If you have:
         auto-paths: true
         ...
 
-Then you don't need to do anything else, it should automatically connect your dynmap webchat with IRC chat.  If it's false, and you're manually specifying your communications paths, then you will need to set up some new paths for this to work:
+Then you don't need to do anything but add the attributes mentioned below, it should automatically connect your dynmap webchat with IRC chat.  If it's false, and you're manually specifying your communications paths, then you will need to set up some new paths for this to work:
 
     path:
         ...
@@ -28,7 +28,7 @@ Then you don't need to do anything else, it should automatically connect your dy
         ...
 
 ### Other configuration
-The dynmap webchat endpoint is configured as a "plain" source, under the tag "generic".  So if you wanted to format how the messages appeared, you would add a section under formatting called "from-plain" with a "generic" option, like so:
+The dynmap webchat endpoint is configured as a "plain" source, using the event type "dynmap".  So if you wanted to format how the messages appeared, you would add a section under formatting called "from-plain" with a "dynmap" option, like so:
 
     formatting:
         from-game:
@@ -36,7 +36,18 @@ The dynmap webchat endpoint is configured as a "plain" source, under the tag "ge
         from-irc:
             ...
         from-plain:
-            generic: '%green%[%source%]%o% %sender%: %message%'
+            dynmap: '%green%[%source%]%o% %sender%: %message%'
+
+Also, in order for the chat events to actually be sent, you must add "dynmap: true" under the default-attributes section:
+
+		default-attributes:
+			...
+			attributes:
+				chat: true
+				action: true
+				join: true
+				...
+				dynmap: true
 
 ## Screenshots
 This is what it looks like when you're chatting across the webchat, the game, and an IRC channel:

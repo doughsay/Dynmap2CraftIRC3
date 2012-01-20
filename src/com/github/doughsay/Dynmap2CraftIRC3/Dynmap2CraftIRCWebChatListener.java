@@ -23,7 +23,7 @@ public class Dynmap2CraftIRCWebChatListener extends CustomEventListener {
 		String msg = webevt.getMessage();
 		String sender = webevt.getName();
 
-		RelayedMessage rMsg = craftIrc.newMsg(dynmapPoint, null, "");
+		RelayedMessage rMsg = craftIrc.newMsg(dynmapPoint, null, "dynmap");
 		rMsg.setField("message", msg);
 		rMsg.setField("sender", sender);
 		rMsg.post();
