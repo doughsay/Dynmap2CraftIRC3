@@ -20,11 +20,11 @@ Then you don't need to do anything else, it should automatically connect your dy
 
     path:
         ...
-      - source: 'irc'
+      - source: 'yourirctag'
         target: 'dynmap'
 
       - source: 'dynmap'
-        target: 'irc'
+        target: 'yourirctag'
         ...
 
 ### Other configuration
@@ -36,9 +36,7 @@ The dynmap webchat endpoint is configured as a "plain" source, under the tag "ge
         from-irc:
             ...
         from-plain:
-            generic: '[This came from dynmap] %message%'
-
-Although, as of right now, I've hardcoded the text "[Map]" in front of the message.  I can change this in the future.
+            generic: '%green%[%source%]%o% %sender%: %message%'
 
 ## Screenshots
 This is what it looks like when you're chatting across the webchat, the game, and an IRC channel:
